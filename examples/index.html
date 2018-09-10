@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<style type="text/css">
+			.borderBlue div,
+			.borderBlue p {
+				margin:  2px 10px;
+				padding: 5px;
+				border:  1px solid #6699FF;
+			}
+			.borderRed div,
+			.borderRed p {
+				margin:  2px 10px;
+				padding: 5px;
+				border:  1px solid red;
+			}
+			.borderGreen div,
+			.borderGreen p {
+				margin:  2px 10px;
+				padding: 5px;
+				border:  1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="../js/isAfter.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			function checkIsAfter(){
+				var firstDomId = document.getElementById("first").value;
+				var secondDomId = document.getElementById("second").value;
+				var result = isAfter(document.getElementById(firstDomId), document.getElementById(secondDomId));
+				var output = document.getElementById("output");
+				if(result){
+					output.innerHTML = "Given first tag is after second tag";
+				} else {
+					output.innerHTML = "Given first tag is not after second tag";
+				}
+			}
+		</script>
+		Is After implementation in plain javascript.
+		<div class="borderBlue test2">
+			<p id="Parent P tag 1">Parent P tag 1</p>
+			<p id="Parent P tag 2">Parent P tag 2</p>
+			<p id="Parent P tag 3">Parent P tag 3</p>
+			<div>
+				<p id="Child P tag 1">Child P tag 1</p>
+				<p id="Child P tag 2">Child P tag 2</p>
+				<p id="Child P tag 3">Child P tag 3</p>
+				<div>
+					<p id="Grand Child P tag 1">Grand Child P tag 1</p>
+					<p id="Grand Child P tag 2">Grand Child P tag 2</p>
+					<p id="Grand Child P tag 3">Grand Child P tag 3</p>
+				</div>
+			</div>
+		</div>
+		</br>
+		<div class="borderGreen">
+		<p>
+		Enter the tag values here to check : </br>
+		</br>First Tag to compare : <input placeholder="Ex:Grand Child P tag 3" id="first" onblur="checkIsAfter()" />
+		Second Tag to compare : <input placeholder="Ex:Parent P tag 2" id="second" onblur="checkIsAfter()" /></p>
+		</div>
+		</br>
+		<div class="borderRed">
+			<p id="output">Is after result comes here</p>
+		</div>
+	</body>
+</html>
